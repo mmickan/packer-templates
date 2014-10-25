@@ -19,6 +19,14 @@
             "scripts/vmware.sh",
             "scripts/cleanup.sh"
           ]
+        },
+        "qemu": {
+          "scripts": [
+            "scripts/base.sh",
+            "scripts/vagrant.sh",
+            "scripts/libvirt.sh",
+            "scripts/cleanup.sh"
+          ]
         }
       }
     }
@@ -32,6 +40,10 @@
         },
         "vmware": {
           "output": "centos-7-0-x64-vmware.box"
+        },
+        "qemu": {
+          "output": "centos-7-0-x64-libvirt.box",
+          "provider": "libvirt"
         }
       }
     }
@@ -48,7 +60,7 @@
       "http_directory": "http",
       "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
       "iso_checksum_type": "sha1",
-      "iso_url": "http://ftp.iij.ad.jp/pub/linux/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+      "iso_url": "http://mirror.aarnet.edu.au/pub/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -72,7 +84,7 @@
       "http_directory": "http",
       "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
       "iso_checksum_type": "sha1",
-      "iso_url": "http://ftp.iij.ad.jp/pub/linux/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+      "iso_url": "http://mirror.aarnet.edu.au/pub/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -84,6 +96,26 @@
         "numvcpus": "1",
         "cpuid.coresPerSocket": "1"
       }
+    },
+    {
+      "type": "qemu",
+      "accelerator": "kvm",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "20s",
+      "disk_size": 5000,
+      "format": "qcow2",
+      "headless": true,
+      "http_directory": "http",
+      "iso_checksum": "154ba47b7a37e52e0100310c3aeb8f9d9daf4806",
+      "iso_checksum_type": "sha1",
+      "iso_url": "http://mirror.aarnet.edu.au/pub/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso",
+      "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s"
     }
   ]
 }
