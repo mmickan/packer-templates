@@ -21,6 +21,16 @@
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
           ]
+        },
+        "qemu": {
+          "scripts": [
+            "scripts/base.sh",
+            "scripts/vagrant.sh",
+            "scripts/console.sh",
+            "scripts/cloud-init.sh",
+            "scripts/disable-ipv6-privacy.sh",
+            "scripts/cleanup.sh"
+          ]
         }
       }
     }
@@ -34,6 +44,10 @@
         },
         "vmware": {
           "output": "ubuntu-14-04-x64-vmware.box"
+        },
+        "qemu": {
+          "output": "ubuntu-14-04-x64-libvirt.box",
+          "provider": "libvirt"
         }
       }
     }
@@ -51,13 +65,13 @@
         " console-setup/layoutcode=us<wait>",
         " console-setup/modelcode=pc105<wait>",
         " debconf/frontend=noninteractive<wait>",
-        " debian-installer=en_US<wait>",
+        " debian-installer=en_AU<wait>",
         " fb=false<wait>",
         " initrd=/install/initrd.gz<wait>",
         " kbd-chooser/method=us<wait>",
         " keyboard-configuration/layout=USA<wait>",
         " keyboard-configuration/variant=USA<wait>",
-        " locale=en_US<wait>",
+        " locale=en_AU<wait>",
         " netcfg/get_hostname=ubuntu-1404<wait>",
         " netcfg/get_domain=vagrantup.com<wait>",
         " noapic<wait>",
@@ -69,9 +83,9 @@
       "disk_size": 40960,
       "guest_os_type": "Ubuntu_64",
       "http_directory": "http",
-      "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
       "iso_checksum_type": "md5",
-      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -94,13 +108,13 @@
         " console-setup/layoutcode=us<wait>",
         " console-setup/modelcode=pc105<wait>",
         " debconf/frontend=noninteractive<wait>",
-        " debian-installer=en_US<wait>",
+        " debian-installer=en_AU<wait>",
         " fb=false<wait>",
         " initrd=/install/initrd.gz<wait>",
         " kbd-chooser/method=us<wait>",
         " keyboard-configuration/layout=USA<wait>",
         " keyboard-configuration/variant=USA<wait>",
-        " locale=en_US<wait>",
+        " locale=en_AU<wait>",
         " netcfg/get_hostname=ubuntu-1404<wait>",
         " netcfg/get_domain=vagrantup.com<wait>",
         " noapic<wait>",
@@ -112,9 +126,9 @@
       "disk_size": 40960,
       "guest_os_type": "linux",
       "http_directory": "http",
-      "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
       "iso_checksum_type": "md5",
-      "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -125,6 +139,47 @@
         "numvcpus": "1",
         "cpuid.coresPerSocket": "1"
       }
+    },
+    {
+      "type": "qemu",
+      "accelerator": "kvm",
+      "boot_command": [
+        "<esc><wait><wait><wait>",
+        "<esc><wait><wait><wait>",
+        "<enter><wait><wait><wait>",
+        "/install/vmlinuz<wait>",
+        " auto<wait>",
+        " console-setup/ask_detect=false<wait>",
+        " console-setup/layoutcode=us<wait>",
+        " console-setup/modelcode=pc105<wait>",
+        " debconf/frontend=noninteractive<wait>",
+        " debian-installer=en_AU<wait>",
+        " fb=false<wait>",
+        " initrd=/install/initrd.gz<wait>",
+        " kbd-chooser/method=us<wait>",
+        " keyboard-configuration/layout=USA<wait>",
+        " keyboard-configuration/variant=USA<wait>",
+        " locale=en_AU<wait>",
+        " netcfg/get_hostname=ubuntu-1404<wait>",
+        " netcfg/get_domain=vagrantup.com<wait>",
+        " noapic<wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",
+        " -- <wait>",
+        "<enter><wait>"
+      ],
+      "boot_wait": "20s",
+      "disk_size": 2560,
+      "format": "qcow2",
+      "headless": true,
+      "http_directory": "http",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
+      "iso_checksum_type": "md5",
+      "shutdown_command": "echo 'shutdown -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s"
     }
   ]
 }
