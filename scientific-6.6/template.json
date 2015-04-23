@@ -8,6 +8,7 @@
           "scripts": [
             "scripts/base.sh",
             "scripts/vagrant.sh",
+            "scripts/beaker.sh",
             "scripts/virtualbox.sh",
             "scripts/cleanup.sh"
           ]
