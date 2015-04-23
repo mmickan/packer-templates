@@ -8,6 +8,7 @@
           "scripts": [
             "scripts/base.sh",
             "scripts/vagrant.sh",
+            "scripts/beaker.sh",
             "scripts/virtualbox.sh",
             "scripts/cleanup.sh"
           ]
@@ -48,7 +49,7 @@
       "http_directory": "http",
       "iso_checksum": "ee345d72e4386f67697e46f3499a0a056e76499c",
       "iso_checksum_type": "sha1",
-      "iso_url": "http://ftp.riken.jp/Linux/scientific/7.0/x86_64/iso/SL-7-x86_64-DVD.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/scientific/7.0/x86_64/iso/SL-7-x86_64-DVD.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -72,7 +73,7 @@
       "http_directory": "http",
       "iso_checksum": "ee345d72e4386f67697e46f3499a0a056e76499c",
       "iso_checksum_type": "sha1",
-      "iso_url": "http://ftp.riken.jp/Linux/scientific/7.0/x86_64/iso/SL-7-x86_64-DVD.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/scientific/7.0/x86_64/iso/SL-7-x86_64-DVD.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
