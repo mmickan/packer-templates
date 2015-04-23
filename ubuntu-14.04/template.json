@@ -46,8 +46,7 @@
           "output": "ubuntu-14-04-x64-vmware.box"
         },
         "qemu": {
-          "output": "ubuntu-14-04-x64-libvirt.box",
-          "provider": "libvirt"
+          "output": "ubuntu-14-04-x64-libvirt.box"
         }
       }
     }
@@ -83,9 +82,9 @@
       "disk_size": 40960,
       "guest_os_type": "Ubuntu_64",
       "http_directory": "http",
-      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
+      "iso_checksum": "83aabd8dcf1e8f469f3c72fff2375195",
       "iso_checksum_type": "md5",
-      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.2/ubuntu-14.04.2-server-amd64.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -126,9 +125,9 @@
       "disk_size": 40960,
       "guest_os_type": "linux",
       "http_directory": "http",
-      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
+      "iso_checksum": "83aabd8dcf1e8f469f3c72fff2375195",
       "iso_checksum_type": "md5",
-      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.2/ubuntu-14.04.2-server-amd64.iso",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -172,9 +171,9 @@
       "format": "qcow2",
       "headless": true,
       "http_directory": "http",
-      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.1/ubuntu-14.04.1-server-amd64.iso",
-      "iso_checksum": "ca2531b8cd79ea5b778ede3a524779b9",
+      "iso_checksum": "83aabd8dcf1e8f469f3c72fff2375195",
       "iso_checksum_type": "md5",
+      "iso_url": "http://mirror.internode.on.net/pub/ubuntu/releases/14.04.2/ubuntu-14.04.2-server-amd64.iso",
       "shutdown_command": "echo 'shutdown -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
